@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Global
+        var a=5;
+        {
+            var a=3;
+            document.write(a+"<br>");
+        }
+
+        document.write(a+"<br>");
+        //Block 
+        var a=5;
+        {
+            function aa() {
+                var a=3;
+                document.write(a+"<br>");
+            }
+        }
+        aa();
+        document.write(a+"<br>");
+    </script>
+    
+</body>
+</html>
