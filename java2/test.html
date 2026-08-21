@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Java Script Test</title>
+    </head>
+    <body>
+        <p> Test</p>
+        <p> Test2</p>
+        <p> Test3</p>
+        <p> Test4</p>
+        <p> Test5</p>
+        <p> Test6</p>
+        <p> Test7</p>
+        <p> Test8</p> 
+        <p> Test9</p>
+        <p> Test10</p>
+        <script>
+            var num=110;
+            if (num < 100) {
+                num --;
+            }
+            else {
+                num ++;
+            }
+            document.getElementsByTagName("p")[0].innerHTML = num;
+
+            // ELSE if statement 
+            var num=70;
+            if (num >=90) {
+                result = "A학점";
+            }
+            else if (num >=80){
+                result = "B학점";
+            }
+            else if (num >=70){
+                result = "C학점";
+            }
+            else if (num >=60){
+                result = "D학점";
+            }
+            else {
+                result ="F학점";
+            }
+
+            document.getElementsByTagName("p")[1].innerHTML = result;
+
+            var num =prompt ("number input (1-4)");
+            switch (num) {
+                case "1": 
+                    eng="One";
+                    break;
+                case "2":
+                    eng="Two";
+                    break;
+                case "3":
+                    eng="Three";
+                    break;
+                case "4":
+                    eng="Four";
+                    break;
+                default:
+                    alert("input 1-4");
+                    location.reload();
+            }
+            document.getElementsByTagName("p")[2].innerHTML = eng;
+
+            i=0;
+            result ="While<br>";
+            while (i<10) {
+                i++;
+                result +=i +"number <br>"
+            }
+            document.getElementsByTagName("p")[3].innerHTML = result;
+            result ="Do While<br>";
+            i=0;
+            do  {
+                i++;
+                result +=i +"number <br>";
+            } while (i<10)
+            document.getElementsByTagName("p")[4].innerHTML = result;
+            result ="For <br>";
+
+            for (i=0;i<10;i++){
+                result +=i +"number <br>";
+            }
+            document.getElementsByTagName("p")[5].innerHTML = result;
+
+            data = ["a","bbb","ccc","ddd"];
+            result = "";
+        
+            for ( element of data) {
+                result += " "+element ;
+            }
+            document.getElementsByTagName("p")[6].innerHTML = result;
+
+            dataobject = {"key":1,"bbb":2,"ccc":3,"ddd":4};
+            result = "";
+        
+            for ( element in  dataobject) {
+                result += " "+dataobject[element] ;
+            }
+            document.getElementsByTagName("p")[7].innerHTML = result;
+            result = " ";
+            document.getElementsByTagName("p")[8].innerHTML = data[0];
+            data.forEach((element,index) => {
+                result += " " + index +": "+element;
+                
+            });
+
+            document.getElementsByTagName("p")[8].innerHTML = result;
+
+            var dataarray =[10,30,4,3,24,29];
+            maxvalue=dataarray[0];
+            for(index=1;index<dataarray.length;index++) {
+                if (maxvalue< dataarray[index]) {
+                    maxvalue = dataarray[index];
+                }
+            }
+            document.getElementsByTagName("p")[9].innerHTML = "Max Value" +maxvalue;
+        </script>
+    </body>
+</html>

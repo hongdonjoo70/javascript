@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector </title>
+</head>
+<body>
+    <h1 id="title"> Four seasons</h1>
+    <ul>
+        <li>Spring</li>
+        <li>Summer</li>
+        <li id="fall">Fall</li>
+        <li>Winter</li>
+    </ul>
+    <button id="aaa" onclick="btn1()"> Black</button>
+    <button> Red</button>
+    <script>
+        document.getElementById("title").style.color="red";
+        document.getElementsByTagName("ul")[0].style.color="blue";
+
+        document.getElementsByTagName("button")[1].onclick=function (){
+            document.getElementsByTagName("li")[1].style.color="red"; 
+            document.getElementById("fall").style.color="red"; 
+        }
+        function btn1(){
+            document.getElementsByTagName("li")[1].style.color="black";   
+        }
+    </script>
+</body>
+</html>

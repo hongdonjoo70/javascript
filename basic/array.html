@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operate/</title>
+</head>
+<body>
+    <script>
+        // List Add 
+        document.write("<hr>List Add<br>");
+        var array=[1,2,3,4,5];
+        document.write(array.length)
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li.push('f','g');
+        document.write(li+"<br>");
+
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li2=li.concat(['k','l'])
+        document.write(li+"<br>"+li2+"<br>");
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li.unshift('k','l');
+        document.write(li+"<br>");
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li.splice(3,0,"a")
+        document.write(li+"<br>");
+
+
+        //List Delete
+        document.write("<hr>List Delete<br>");
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li.shift();
+        document.write(li+"<br>");
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li.pop();
+        document.write(li+"<br>");
+
+
+        //List Sort
+        document.write("<hr>List Sort<br>");
+        var li = ['a', 'b', 'c', 'f', 'z','e'];
+        document.write(li+"<br>");
+        li.sort();
+        document.write(li+"<br>");
+        li.reverse();
+        document.write(li+"<br>");
+
+        //List access
+        document.write("<hr>List Access<br>");
+        var li = ['abc', 'ddd', 'cddd', 'adf', 'daz','dfe'];
+        document.write(li[0]+"<br>");
+        document.write(li[1]+"<br>");
+        for (var i =0; i < li.length; i++){
+            document.write(li[i]+" "+li[i].toUpperCase()+ "<br>");
+        }
+        var array = ['abc', 'ddd', 'cddd', 'adf', 'daz','dfe'];
+        for (var i =0; i < li.length; i++){
+            document.write(li[i]+" "+li[i].toUpperCase()+ "<br>");
+        }
+
+        //List access
+        document.write("<hr>List Access 2<br>");
+        var arrdata=["apple","peach","banana"];     
+        for ( var index = 0; index < arrdata.length;index++){
+             document.write(arrdata[index]+" <br>");
+        }
+        var arrdata=["apple","peach","banana"];     
+        for ( var index in arrdata){
+             document.write(arrdata[index]+" <br>");
+        }
+        var arrdata=["apple","peach","banana"];     
+        for ( var data of arrdata){
+             document.write(data+" <br>");
+        }
+        arrdata.forEach((value,index) => {
+             document.write(value+" "+index+ "<br>");
+        })
+        document.write("<hr>Map Access<br>");
+        var base = [10,20,30];
+        squre = base.map((value,index)=>value*index)
+        document.write(squre+" "+ "<br>");
+
+        document.write("<hr>Filter Access<br>");
+        var base = [10,20,-50,-30,40,30];
+        filter = base.filter((value,index)=>(value >5)&&(index>2))
+        document.write(filter+" "+ "<br>");
+    </script>
+</body>
+</html>

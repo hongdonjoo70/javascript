@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>사과</li>
+        <li>수박</li>
+        <li>딸기</li>
+    </ul>
+    <h1> AAA</h1>
+    <button onclick="allset('red')">red click</button>
+    <button id="btn1">blue click</button>
+    <script>
+        function allset(color) {
+            num=document.getElementsByTagName("li").length;
+            for(number= 0;number < num; number++){
+                document.getElementsByTagName("li")[number].style.color =color; 
+            }
+            document.getElementsByTagName("h1")[0].style.color="blue"
+        }
+        document.getElementById("btn1").onclick =function(){
+            allset("blue");
+        }
+    </script>
+</body>
+</html>
