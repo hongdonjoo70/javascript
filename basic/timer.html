@@ -53,17 +53,23 @@
         function ch2 () {
             box.style.backgroundImage="url('img/2.jpg')";
         }
+        function ch3 () {
+            box.style.backgroundImage="url('img/3.jpg')";
+        }
+        function ch4() {
+            box.style.backgroundImage="url('img/4.jpg')";
+        }
         btn1.onclick=function () {
             box.removeEventListener("mouseover",ch1);
             box.removeEventListener("mouseout",ch2);
         }
         btn2.onclick=function () {
-            box.addEventListener ("mouseenter",ch1);
-            box.addEventListener ("mouseleave",ch2);
+            box.addEventListener ("mouseenter",ch3);
+            box.addEventListener ("mouseleave",ch4);
         }
         btn3.onclick=function () {
-            box.removeEventListener("mouseenter",ch1);
-            box.removeEventListener("mouseleave",ch2);
+            box.removeEventListener("mouseenter",ch3);
+            box.removeEventListener("mouseleave",ch4);
         }
         btn4.onclick=function () {
             box.addEventListener("mouseover",ch1);
