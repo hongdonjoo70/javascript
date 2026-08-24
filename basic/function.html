@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i = 0;
+        function test() {
+            document.write("hello "+"<br>");
+        }
+        test(); //Call for test
+        const test2 = function () {
+            document.write (`hello 2 ${i} <br>`);
+            i++;
+            return i;
+        }
+        test2();
+        test2();
+        const test3 = new Function ("a","b", "return a+b")
+        document.write (test3(1,2) + "<br>");
+
+        //Parameters 
+        function myFunction (name, area) {
+            document.write("안녕하세요 "+ name + "입니다. <br>")
+            document.write("사는 곳은 "+ area + "입니다. <br>")
+        }
+        myFunction ("주홍돈","용인");
+        
+        function login (loginid, passwd) {
+            if (loginid =="na") {
+                if ( passwd =="pass") {
+                    document.write("Welcome !!! <br>");
+                }
+                else {
+                    document.write("Invalid Password <br>");
+                }
+            }
+            else {
+                document.write("Invalid Id <br>");
+            }
+        }
+        login ("na","pass");
+        login ("na","pasds");
+        login ("nda","pasds");
+
+        function mul (a,b) {
+            return a*b;
+        }
+        result = mul(2,3);
+        document.write("result" + result +"<br>");
+
+        function multi (i) {
+            document.write (`Multiple ${i} <br>`);
+            for ( let j=1; j< 10; j++) {
+                document.write ( ` ${i} * ${j} = ${i*j} <br>`);
+            }
+        }
+
+        multi(2);
+        multi(3);
+
+        function sumxx (){
+            let result = arguments[0]+arguments[1] +arguments[2];
+            return result;
+        }
+
+        // add variable parameter
+        function sumn() {
+            let result = 0;
+            for ( let i=0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+        let resultB = sumxx(10,20,30);
+        let resultC = sumn(1,2,3,4);
+        let resultD = sumn (1,2)
+        document.write(`sum ${resultB} ${resultC} ${resultD} <br>`)
+
+        function calz (func, num) {
+            return func(num);
+        }
+        function addx (num) {
+            return num+1;
+        }
+        function subx (num) {
+            return num-1;
+        }
+        document.write(`${calz(addx,1)} ${calz(subx,2)} <br>`);
+
+        function cal(mode) {
+            let funct = {
+                "add":function (left,right) { return left+right},
+                "minus":function (left,right) {return left-right}
+            }
+            return funct[mode];
+        }
+        document.write ("<br> New data "+`${cal("add")(2,1)}   ${cal("minus")(3,2)}<br>`)
+    </script>
+</body>
+</html>

@@ -32,6 +32,27 @@
             document.write(a+"<br>");
         }
         document.write(a+"<br>");
+        document.write("Variable scope <br>");
+        function test1() {
+            var x =1;
+            if (true){
+                var x=2;
+                document.write(x+"<br>");
+            }
+            document.write(x+"<br>");
+        }
+        function test2() {
+            var x =1;
+            if (true){
+                let x=2;
+                document.write(x+"<br>");
+            }
+            document.write(x+"<br>");
+        }
+        test1();
+        test2();
+        
+
     </script>
     
 </body>

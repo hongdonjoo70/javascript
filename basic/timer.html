@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set Timeout</title>
+</head>
+    <style>
+        #box {
+            width:300px;
+            height:200px;
+            background: url("img/1.jpg");
+            background-size: cover;
+            cursor:pointer;
+        }
+        button {
+            width:100px;
+            height:100px;
+            display:none;
+        }
+        #btn5 {
+            width:100px;
+            height:100px;
+            display:block;    
+        }
+
+    </style>
+<body>
+    <div id="box">
+       Test
+    </div>
+    <button id="btn1">
+        Remove Events
+    </button>
+    <button id="btn2">
+        Add New Events
+    </button>
+    <button id="btn3">
+        Remove New Events
+    </button>
+    <button id="btn4">
+        Add Original Events
+    </button>
+    <button id="btn5">
+        Clear Timer
+    </button>
+    <script>
+        box.addEventListener ("mouseover",ch1);
+        box.addEventListener ("mouseout",ch2);
+        function ch1 () {
+            box.style.backgroundImage="url('img/1.jpg')";
+        }
+        function ch2 () {
+            box.style.backgroundImage="url('img/2.jpg')";
+        }
+        btn1.onclick=function () {
+            box.removeEventListener("mouseover",ch1);
+            box.removeEventListener("mouseout",ch2);
+        }
+        btn2.onclick=function () {
+            box.addEventListener ("mouseenter",ch1);
+            box.addEventListener ("mouseleave",ch2);
+        }
+        btn3.onclick=function () {
+            box.removeEventListener("mouseenter",ch1);
+            box.removeEventListener("mouseleave",ch2);
+        }
+        btn4.onclick=function () {
+            box.addEventListener("mouseover",ch1);
+            box.addEventListener("mouseout",ch2);
+        }
+        let buttonview = setTimeout(disbutton,3000);
+        function disbutton () {
+            document.getElementById('btn1').style.display = "block";
+            document.getElementById('btn2').style.display = "block";
+            document.getElementById('btn3').style.display = "block";
+            document.getElementById('btn4').style.display = "block";
+        }
+        btn5.onclick=function () {
+            clearTimeout(buttonview);
+        }
+        setInterval (colorBg,1000);
+        let i=0;
+        function colorBg () {
+            let colors = ["tomato","yellow","aqua","purple"];
+            i++;
+            if (i>=colors.length)  {i=0;}
+            document.getElementById("btn5").style.background = colors[i];
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //변수선언/함수 선언이 해당 block의 최상단에 선언된 것처럼 취급됨
+        var myName ="hi";
+        function myName () {
+            document.write("xxx");
+        }
+        function yourName () {
+            document.write("yyy");
+        }
+        var yourName = "ccc";
+        document.write(typeof myName +" "+ typeof yourName+ "<br>");
+    </script>
+</body>
+</html>
