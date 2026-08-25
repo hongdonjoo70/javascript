@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>box 색 바꾸기</h1>
+    <button id="btn">click</button>
+    <button id="btn2">Change Continue</button>
+    <div id ="box">Test </div>
+    <img src="img/apple.jpg" id ="aaa">
+ 
+    <script>
+        const images = ["apple","banana","orange","tomato","watermelon"];
+        btn.onclick = function() {
+            let choicen = Math.floor(Math.random()*images.length);
+            aaa.src ="../img/"+images[choicen]+".jpg";
+            num = choicen;
+        }
+        let num = 0;
+        btn2.onclick = function() {
+            num ++;
+            if (num >= images.length) {
+                num = 0;
+            }
+            aaa.src ="../img/"+images[num]+".jpg";
+        }
+    </script>
+
+    
+</body>
+</html>
