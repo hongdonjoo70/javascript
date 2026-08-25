@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Child</title>
+    <style>
+        li:first-child {background-color:red;}
+        li:nth-child(2) {background-color:cyan;}
+        li:last-child {background-color:gold;}
+    </style>
+</head>
+<body>
+    <p>Click on make element</p>
+    <button onclick="addChild()">New Button </button>
+    <button onclick="addChildText()">Add Text </button>
+    <button onclick="addLiElement()">Add List Element </button>
+
+    <div id ="myItemList"></div>
+    <ul id ="listElement">
+        <li>Coffee</li>
+        <li>Tea</li>
+    </ul>
+
+    <script>
+        function addChild() {
+            const newbutton = document.createElement("button");
+            const textdata = document.createTextNode("Hello");
+            newbutton.appendChild(textdata);
+            document.body.appendChild(newbutton);
+        }
+        function addChildText() {
+            const h1element = document.createElement("h1");
+            const textdata = document.createTextNode("Hello");
+            h1element.appendChild(textdata);
+            document.body.appendChild(h1element);
+        }
+        function addLiElement() {
+            const liElement = document.createElement("li");
+            const textdata = document.createTextNode("Water");
+            liElement.appendChild(textdata);
+            document.getElementById("listElement").appendChild(liElement);
+        }
+        let items = ["Blue","Red","Green","Black","Orange"];
+        const uls = document.createElement("ul");
+        document.getElementById("myItemList").appendChild(uls);
+        items.forEach(function (item) {
+            const lis = document.createElement("li");
+            uls.appendChild(lis);
+            lis.innerHTML += item;
+        })
+    </script>
+    
+</body>
+</html>

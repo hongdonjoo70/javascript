@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Stewberry</li>
+        <li>banana</li>
+        <li>watermeron</li>
+    </ul>
+    <p id ="ach">Test </p>
+    <p id="demo"></p>
+
+    <h1 id="textc">과일</h1>
+      <input type="radio" name="a" id="btn1" checked><span>토마토</span>
+      <input type="radio" name="a" id="btn2"><span>바나나</span>
+      <input type="radio" name="a" id="btn3"><span>수박</span>
+
+      <img src="img/apple.jpg" id="chi">
+      <h1 id ="fruit">과일</h1>
+      <input type="radio" name="b" checked ><span>사과</span>
+      <input type="radio" name="b" ><span>바나나</span>
+      <input type="radio" name="b" ><span>오렌지</span>
+      <input type="radio" name="b" ><span>토마토</span>
+      <input type="radio" name="b" ><span>수박</span>
+
+    <script>
+        this.onclick=function(e) {
+            console.log(this);
+            e.target.style.display="none";
+        }
+
+        this.onclick = function(e) {
+            if (e.target.id=="ach"){
+                const arrColor = ["#ff0","#6c0","#fcf","#cf0","#39f"];
+                let arrNum = Math.floor(Math.random()* arrColor.length);
+                const bodyTag = document.getElementsByTagName("body")[0];
+                bodyTag.style.backgroundColor=arrColor[arrNum];
+            }
+        }
+
+        let listEles = document.querySelectorAll("li");
+        for (let element of listEles) {
+            element.onclick = function (e) {
+                console.log(this);
+                console.log(this==e.target);
+                this.style.display ="none"
+            }
+        }
+        const person = {
+            firstname: "Hongdon",
+            lastname:"Joo",
+            fullname : function () {
+                return this.firstname +" " + this.lastname;
+            }
+        }
+        document.getElementById("demo").innerHTML=person.fullname();
+        // this.onclick=function(e) {
+        //     if(e.target.id=="btn1") {
+        //         textc.style.backgroundColor="tomato";
+        //     }
+        //     if(e.target.id=="btn2") {
+        //         textc.style.backgroundColor="gold";
+        //     }
+        //     if(e.target.id=="btn3") {
+        //         textc.style.backgroundColor="green";
+        //     }
+        // }
+        let inputs = document.querySelectorAll("input");
+        let colors = ["tomato","gold","green"];
+        for (let i in inputs) {
+            inputs[i].onchange = function () {
+                if (this.id =="btn"+(Number(i)+1)) {
+                    textc.style.backgroundColor=colors[i];
+                }
+            }
+        }
+
+        this.onclick=function (e) {
+            const text_src =["apple","banana","orange","tomato","watermelon"];
+            let lists= document.getElementsByName("b");
+
+            for (let number in lists ) {
+                if (lists[number].checked == true) {
+                    chi.src = "img/"+ text_src[number] + ".jpg";
+                    fruit.innerHTML = text_src[number] ;  
+                }
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

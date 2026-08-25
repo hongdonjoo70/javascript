@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>1</title>
+
+</head>
+
+<body>
+  <img src="img/banner_1.jpg" class="meat">
+
+
+  <script>
+    //상단 배너가 계속 된다.   setInterval 함수
+    // const image = document.getElementsByClassName("meat")[0];
+    const image = document.querySelector(".meat");
+    let img_array = ["img/banner_1.jpg", "img/banner_2.jpg", "img/banner_3.jpg"];
+    let index = 0;
+
+    function slide() {
+      image.src = img_array[index]; 
+      index++;
+      if (index >= img_array.length) {
+        index = 0;
+      }
+    }
+
+    setInterval(slide, 1000);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li class="temp">CSS</li>
+        <li class="temp">Java Script</li>
+    </ul>
+    <ol>
+      <li id="Number1">HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ol>
+    <button onclick="changecolor()">Click</button>
+    <script>
+        const ullists=document.getElementsByTagName("ul")[0];
+        const lists = ullists.getElementsByTagName("li");
+        
+        for (let index=0;index<lists.length;index++) {
+            lists[index].style.color = "red";
+        }
+
+        const tempists=document.getElementsByClassName("temp");
+        for (let index=0;index<tempists.length;index++) {
+            tempists[index].style.backgroundColor = "blue";
+        }
+        document.getElementById("Number1").style.color ="black";
+        function changecolor() {
+            document.querySelector("li").style.color ="blue";
+            const listb = document.querySelectorAll(".temp");
+            for (let index=0;index<listb.length;index++) {
+                listb[index].style.backgroundColor = "yellow";
+            }
+        }
+
+    </script>
+</body>
+</html>
