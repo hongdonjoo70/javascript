@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //create object instance
+        const grade = {"cemy":10,"stomy":6,"windy":80};
+        document.write(grade["cemy"],grade["stomy"],grade["windy"],"<br>")
+        const grade2 = {};
+        grade2["cemy"]=10;
+        grade2["stomy"]=6;
+        grade2["windy"]=80;
+        document.write(grade2["cemy"],grade2["stomy"],grade2["windy"],"<br>")
+        const grade3= new Object();
+        grade3["cemy"]=10;
+        grade3["stomy"]=6;
+        grade3["windy"]=80;
+        document.write(grade3.cemy,grade3.stomy,grade3.windy,"<br>")
+        for (let name in grade3) {
+            document.write(name+":"+ grade3[name]+ "<br>");
+        }
+        document.write("======== <br>");
+        const scores = {
+            members:{cemy:10, stomy:6, windy:80},
+            show:function () {
+                for (let name in this.members) {
+                    document.write(`${name}:${this.members[name]} <br>`)
+                }
+            }
+        }
+        scores.show();
+
+        //Create Object
+        const Person = {
+            name :"joo",
+            introduce : function () {
+                return `My name is ${this.name}`;
+            }
+        }
+    
+        function Person2 (){}
+
+        const p2 = new Person2 ();  // Create Empty         
+        p2.name ="주홍돈",
+        p2.introduce = function () {
+            return "my name is "+ this.name;
+        }
+        document.write(`${p2.introduce()} <br>`)
+
+        const p3 = new Person2 ();  // Create Empty               
+        p3.name ="주홍돈2",
+        p3.introduce = function () {
+            return "my name is "+ this.name;
+        }
+        document.write(`${p3.introduce()} <br>`)
+
+        //Create Object 2
+        function Personn (name){
+            this.name= name;
+            this.introduce = function () {
+                return "My Name is "+ this.name;
+            }
+        }
+        
+        const p4 = new Personn ("Joo");  // Create Empty  
+        document.write(`${p4.introduce()} <br>`);
+
+        nameLists = ["a","ddb","dddc","xxxx"];
+        for (let name of nameLists) {
+            const p1 = new Personn(name);
+            document.write(`${p1.introduce()} <br>`);
+        }
+
+        //Eamples 
+        function Common_mouse(color,button,name,weight) {
+            this.color = color;
+            this.button = button;
+            this.name = name;
+            this.weight = weight;
+        }
+        const myMouse = new Common_mouse("red",2,"LogiTec","100g");
+        document.write(`My mouse Name is ${myMouse.name} <br>`);
+
+        function Test (beef,chicken, pork) {
+            this.beef=beef;
+            this.chicken=chicken;
+            this.pork=pork;
+        }
+        const mydinner1 = new Test("소","닭","돼지");
+        const mydinner2 = new Test("소2","닭2","돼지2");
+        document.write(`My dinner1  ${mydinner1.beef},${mydinner1.chicken},${mydinner1.pork} <br>`);
+        document.write(`My dinner2  ${mydinner2.beef},${mydinner2.chicken},${mydinner2.pork} <br>`);
+
+        function Shop(category,volume,price) {
+            this.category = category;
+            this.volume = volume;
+            this.price = price;
+            this.totalprices = function () {
+                document.write(`Total Costs : ${this.price * this.volume}<br>`);
+            }
+        }
+        const aaa = new Shop("good",10,20);
+
+        aaa.totalprices();
+
+    </script>
+    
+</body>
+</html>
