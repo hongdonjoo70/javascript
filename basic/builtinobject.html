@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cuTime = new Date();
+        document.write(cuTime.getMonth()+":"+cuTime.getDate()+":"+cuTime.getDay()+"<br>");
+
+        const  myDate=new Date(1970,5,28);
+        document.write(myDate.getFullYear()+":"+myDate.getMonth()+":"+myDate.getDate()+":"+myDate.getDay()+"<br>");
+        const lastDay = new Date(2026,11,31);
+        let diff = lastDay - cuTime;
+        document.write(Math.ceil(diff/(60*1000*60*24)));
+        let str ="asdfdfe";
+        document.write(str.charAt(2)+":"+str.match("fe"));
+     
+        let userName =prompt ("English name","");
+        let upperName = userName.toUpperCase();
+        document.write("<br>Name : " + userName +"UpperName " + upperName+"<br>");
+
+        let userEmail =prompt ("Email Address","");
+        let arrUrl = [".co.kr",".com",".net",".or.kr","go.kr"];
+
+        let check1 =false;
+        let check2 =false;
+
+        if (userEmail.indexOf("@") >0) {
+            check1 = true;
+        }
+        for (let i =0; i < arrUrl.length; i++) {
+            if (userEmail.indexOf(arrUrl[i])>0) {
+                check2 =true;
+            }
+        }
+        if (check1 && check2) {
+            document.write("OK");
+        }
+        else {
+            document.write("NOK");
+        }
+
+    </script>
+</body>
+</html>

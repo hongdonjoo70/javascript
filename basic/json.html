@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:"John",
+            age:30,
+            birth:"1986-12-14",
+            city: "New York"
+        }
+        const myJson = JSON.stringify(obj);
+        document.write("<br>"+obj+"<br>");
+        document.write("<br>"+myJson+"<br>");
+        const newObj = JSON.parse(myJson);
+        document.write("<br>"+newObj+newObj["name"]+"<br>");
+        const newObj2 = JSON.parse(myJson,function (key,value) {
+            if (key =="birth") {
+                return new Date(value);
+            }
+            else {
+                return value;
+            }
+        });
+        document.write("<br>"+newObj2+newObj2["birth"]+"<br>");
+    
+    </script>
+</body>
+</html>
