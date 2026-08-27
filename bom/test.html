@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #xxx {
+            height:100px;
+            background-color: red;
+            overflow:hiden;
+        }
+        #logoDiv {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity:0.3;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <h3 id="xx">window.open()으로 윈도우 열기</h3>
+    <hr>
+    <a href="javascript:load('http://www.graceland.com')">
+        엘비스 프레슬리 홈 페이지</a><br>
+    <a href="javascript:load('http://www.universalorlando.com')">
+        유니버설 올랜드 홈 페이지</a><br>
+    <a href="javascript:load('http://www.disneyworld.com')">
+        디즈니월드 홈 페이지</a><br>
+    <a href="javascript:closeWindow()">Close </a> <br>
+    <script>
+        let newWindow = null;
+        function load(URL) {
+            newWindow = window.open(URL, "myWin","left=300,top=300,width=400,height=300");
+        }
+        function closeWindow() {
+            newWindow.close();
+        }
+    </script>
+    <h3>이미지에 마우스를 올리고 5초간 그대로 있을 때 사이트로 이동합니다</h3>
+    <hr>
+    <img id="img" src="media/naver.gif" onmouseover="startTimer(5000)" onmouseout="cancelTimer()">
+    <script>
+        let timerId = null;
+        function startTimer(time) {
+            timerId = setTimeout("load('http://www.naver.com')",time);
+            document.getElementsByTagName("h3")[1].innerHTML= "On";
+
+        }
+        function cancelTimer() {
+            if (timerId!= null) {
+                clearTimeout(timerId);
+            }
+            document.getElementsByTagName("h3")[1].innerHTML= "Off";
+        }
+        function load(url) {
+            window.location = url;
+        }
+    </script>
+    <h3>텍스트가 자동 회전하며, 마우스로 클릭하면 중단합니다.</h3>
+    <hr>
+    <div><span id="span" style="background-color:yellow">자동 회전하는 텍스트입니다.</span>
+    </div>
+
+    <script>
+        const span = document.getElementById("span");
+        let timerId2 = setInterval("doRotate()",200);
+        span.onclick = function (e) {
+            clearInterval(timerId2);
+        }
+        function doRotate() {
+            let str = span.innerHTML;
+            let firstChar = str.substr(0,1);
+            let remains = str.substr(1,str.length-1);
+            str = remains + firstChar;
+            span.innerHTML = str;
+        }
+    </script>
+    <h3>새 창 열기 및 제어</h3>
+    <button onclick="openWindow()">새 창 열기</button>
+    <script>
+        let newWindow2;
+        function openWindow() {
+            newWindow2 = window.open("","","width=300,height=300,left=100,right=100");
+            newWindow2.document.write(`
+             <h3>제어 가능한 새 창</h3>
+            <button onclick="window.moveBy(-10, 0)">←</button>
+            <button onclick="window.moveBy(10, 0)">→</button>
+            <button onclick="window.moveBy(0, -10)">↑</button>
+            <button onclick="window.moveBy(0, 10)">↓</button>
+            <button onclick="window.resizeBy(10, 10)">+ 크기</button>
+            <button onclick="window.resizeBy(-10, -10)">- 크기</button>
+            `)
+        }
+    </script>  
+    
+    <h3 >
+    <h3>자동 스크롤 페이지</h3>
+    <hr>
+    <h3>꿈길(이동순)</h3>
+    <div onload="startScroll(1000)" id ="xxx"> 
+    꿈길에<br>
+    발자취가 있다면<br>
+    님의 집 창밖<br>
+    그 돌계단 길이 이미 오래 전에<br>
+    모래가 되고 말았을 거예요<br><br>
+    하지만<br>
+    그 꿈길에서 자취 없다 하니<br>
+    나는 그것이 정말 서러워요<br><br>
+    이 밤도<br>
+    나는 님의 집 창밖<br>
+    그 돌계단 위에 홀로 서서<br>
+    혹시라도 님의 목소리가 들려올까<br>
+    고개 숙이고 엿들어요<br>
+    </div>
+    </h3>
+
+
+    <script>
+        function startScroll(interval) {
+            setInterval (autoScroll, interval);
+        }
+        function autoScroll(){
+            xxx.scrollBy(0,10);
+        }
+        window.onbeforeinput = function (e) {
+            logoDiv = document.getElementById("logDiv");
+            logoDiv.
+        }
+    </script>
+    <h3>onbeforeprint, onafterprint 이벤트 예</h3>
+    <hr>
+    <div id="logoDiv">
+        <img src="media/logo.png" alt="이미지 없습니다.">
+    </div>
+    <p>안녕하세요. 브라우저 윈도우에서는 보이지 않지만, 프린트시에는 회사 로고가 출력되는 예제를
+        보입니다. 마우스 오른쪽 버튼을 눌러 인쇄 미리보기 메뉴를 선택해 보세요.</p>
+    <script>
+        window.onbeforeprint = function (e) {
+            logoDiv = document.getElementById("logoDiv");
+            logoDiv.style.display = "block"; // block으로 변경. 로고가 화면에 나타나게 함
+        }
+        window.onafterprint = hideLogo;
+        function hideLogo() {
+            logoDiv = document.getElementById("logoDiv");
+            logoDiv.style.display = "none"; // <div> 영역이 보이지 않게 함
+            logoDiv.style.zIndex = -1; // 이미지를 문서의 맨 바닥으로 배치
+        }
+    </script>
+</body>
+
+</html>
