@@ -29,5 +29,33 @@
         document.write("<br>"+newObj2+newObj2["birth"]+"<br>");
     
     </script>
+    <h2>Create Object from JSON String</h2>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2">c</p>
+    
+    <script>
+        const text = '{"class":[{"seong":"김","name":"유신","age":"21"},{"seong":"이","name":"순신","age":"22" },    {"seong":"홍","name":"길동","age":"23" }]}';
+        const objn = JSON.parse(text);
+
+        document.getElementById("demo").innerHTML=objn.class[0].seong + " " +objn.class[1].name;
+        
+        for(let element in objn.class) {
+            document.getElementById("demo1").innerHTML += objn.class[element].seong + " " +objn.class[element].name + "<br>";
+        }
+
+        let tables = "<table border='1'>";
+        for (let element in objn.class) {
+            tables +="<tr>";
+            tables += "<td>이름 </td><td>" + objn.class[element].seong + " "+objn.class[element].name+ "</td><td>이름</td><td>"+ objn.class[element].age +"</td></tr>";
+        }
+        tables +="</table>";
+        document.getElementById("demo2").innerHTML = tables;
+
+
+    </script>
+
+
+
 </body>
 </html>
